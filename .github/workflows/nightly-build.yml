@@ -8,6 +8,18 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/testdb
+      JWT_SECRET: testsecret
+      JWT_ALGORITHM: HS256
+      MAIL_USERNAME: test@ethereal.email
+      MAIL_PASSWORD: testpassword
+      MAIL_SERVER: smtp.ethereal.email
+      MAIL_PORT: 587
+      MAIL_FROM: test@ethereal.email
+      MAIL_FROM_NAME: Test
+      DOMAIN: localhost
+      REDIS_URL: redis://localhost:6379/0
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
