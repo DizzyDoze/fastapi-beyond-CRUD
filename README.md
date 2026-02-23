@@ -76,5 +76,24 @@ Run the tests using this command
 pytest
 ```
 
+## CI/CD
+
+### Conventional Commit Check
+  A GitHub Action checks that PR titles follow Conventional Commits format (e.g.
+  `feat: ...`, `fix: ...`). If not, the PR is closed and a notification email is sent
+  via Ethereal Email.
+
+### Nightly Build
+  Runs every night at 12am UTC. Runs tests first — if they pass, builds and pushes a
+  Docker image to GitHub Container Registry. If tests fail, the build is skipped and a
+   failure email is sent.
+
+### GitHub Secrets Required
+  | Secret | Description |
+  |---|---|
+  | `MAIL_USERNAME` | Ethereal Email address |
+  | `MAIL_PASSWORD` | Ethereal Email password |
+  | `MAIL_TO` | Notification recipient |
+
 ## Contributing
 I welcome contributions to improve the documentation! You can contribute [here](https://github.com/jod35/fastapi-beyond-crud-docs).
