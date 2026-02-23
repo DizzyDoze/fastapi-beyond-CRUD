@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/dizzyDoze/fastapi-beyond-crud:nightly
+          tags: ghcr.io/dizzydoze/fastapi-beyond-crud:nightly
 
   notify-failure:
     runs-on: ubuntu-latest
